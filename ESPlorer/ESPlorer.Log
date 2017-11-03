@@ -9112,3 +9112,37 @@
   <thread>13</thread>
   <message>RTS set to OFF</message>
 </record>
+<record>
+  <date>2017-11-03T20:17:40</date>
+  <millis>1509729460255</millis>
+  <sequence>833</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>13</thread>
+  <message>Close port COM3 - Success.</message>
+</record>
+<record>
+  <date>2017-11-03T20:17:41</date>
+  <millis>1509729461476</millis>
+  <sequence>834</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>13</thread>
+  <message>FileTab cleared: Success.</message>
+</record>
+<record>
+  <date>2017-11-03T20:17:41</date>
+  <millis>1509729461479</millis>
+  <sequence>835</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>13</thread>
+  <message>File close: Success.</message>
+</record>
+</log>
