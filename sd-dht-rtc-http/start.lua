@@ -5,12 +5,17 @@ if adc.force_init_mode(adc.INIT_VDD33) then
 end
 
 spi.setup(1, spi.MASTER, spi.CPOL_LOW, spi.CPHA_LOW, 8, 8)
-vol = file.mount("/SD0", 8)   
+SD_isAvailable = false 
+local vol = file.mount("/SD0", 8)   
 if not vol then    
     vol = file.mount("/SD0", 8)
     if not vol then
         print("SD mount failed")--error("mount failed")
+    else
+        SD_isAvailable = true      
     end
+else
+  SD_isAvailable = true     
 end                      
 collectgarbage()
 
@@ -33,12 +38,8 @@ tmr.alarm(1, 1000, 1, function()
      end
 end)   
 collectgarbage()   
-       
-my_server = net.createServer(net.TCP, 30) -- 30s timeout 
-if my_server then 
-    dofile("webserver.lua") --webserver.lc
-    my_server:listen(80, net_connect)                 
-end        
+
+dofile("webserver.lua") --webserver.lc       
 collectgarbage()
  
 sntp.sync(nil, 

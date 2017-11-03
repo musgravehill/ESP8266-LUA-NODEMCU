@@ -3,23 +3,18 @@ cron.schedule("* * * * *", function(e) -- */2
     --DHT22
     DHT_pin=4 --  data pin, GPIO2
     status, DHT_t, DHT_h, DHT_t_dec, DHT_h_dec = dht.read(DHT_pin)
-    if status == dht.OK then
-        -- Integer firmware using this example
+    if status == dht.OK then        
         print(string.format("DHT Temperature:%d.%03d;Humidity:%d.%03d\r\n",
-                                      math.floor(temp),
-                                      temp_dec,
-                                      math.floor(humi),
-                                      humi_dec
+            math.floor(DHT_t),
+            DHT_t_dec,
+            math.floor(DHT_h), 
+            DHT_h_dec 
         ))                                
     elseif status == dht.ERROR_CHECKSUM then
         print( "DHT Checksum error." )
     elseif status == dht.ERROR_TIMEOUT then
         print( "DHT timed out." )
-    end              
-                        
-            
-    --ADC
-    print("System voltage (mV):", adc.readvdd33(0))
+    end        
             
     --HTTP, httpS doesnot work
     http.get("http://httpbin.org/ip", nil, function(code, data)
@@ -28,10 +23,9 @@ cron.schedule("* * * * *", function(e) -- */2
         else
             print(code, data)
         end
-    end)
+    end)            
             
-            
-    --SD card
+    --SD card    
     if file.open("/SD0/log.txt", "a+") then --open/ and create it
         tm = rtctime.epoch2cal(rtctime.get())          
         file.write(string.format("%04d-%02d-%02d %02d:%02d:%02d", tm["year"], tm["mon"], tm["day"], (tm["hour"]+3), tm["min"], tm["sec"]))

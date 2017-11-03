@@ -1,4 +1,6 @@
 
+
+
 function net_connect(current_connect, data)   
     current_connect:on ("receive", function (conn, req_data)  
         conn:send("HTTP/1.0 200 OK\r\n")
@@ -32,7 +34,22 @@ function net_connect(current_connect, data)
         conn:send("4, software restart<br>\r\n") 
         conn:send("5, wake from deep sleep<br>\r\n") 
         conn:send("6, external reset <br>\r\n") 
-        
+
+        file.chdir("/SD0")
+        conn:send("<h2>\r\n") 
+        local remaining, used, total=file.fsinfo()
+        conn:send("File system info:<br>")
+        conn:send("Total : "..(total / 1024).." MBytes<br>")
+        conn:send("Used : "..(used / 1024).." MBytes<br>")
+        conn:send("Remain: "..(remaining / 1024).." MBytes<br><br>")          
+        local l = file.list();
+        for k,v in pairs(l) do
+            conn:send("name:"..k.."  "..(v).." kBytes<br>\r\n")
+        end        
+        conn:send("</h2>\r\n")    
+        collectgarbage()  
+
+        file.chdir("/FLASH")
         conn:send("<h2>\r\n") 
         local remaining, used, total=file.fsinfo()
         conn:send("File system info:<br>")
@@ -73,6 +90,12 @@ function net_connect(current_connect, data)
         collectgarbage()         
     end)   --inner      
 end --function net_connect 
+
+my_server = net.createServer(net.TCP, 30) -- 30s timeout 
+if my_server then     
+    my_server:listen(80, net_connect)                  
+end   
+collectgarbage() 
   
 
 
