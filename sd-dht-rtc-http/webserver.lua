@@ -35,40 +35,45 @@ function net_connect(current_connect, data)
         conn:send("5, wake from deep sleep<br>\r\n") 
         conn:send("6, external reset <br>\r\n") 
 
-        file.chdir("/SD0")
         conn:send("<h2>\r\n") 
-        local remaining, used, total=file.fsinfo()
-        conn:send("File system info:<br>")
-        conn:send("Total : "..(total / 1024).." MBytes<br>")
-        conn:send("Used : "..(used / 1024).." MBytes<br>")
-        conn:send("Remain: "..(remaining / 1024).." MBytes<br><br>")          
-        local l = file.list();
-        for k,v in pairs(l) do
-            conn:send("name:"..k.."  "..(v).." kBytes<br>\r\n")
-        end        
-        conn:send("</h2>\r\n")    
+        if SD_isAvailable then 
+            file.chdir("/SD0")
+            
+            local remaining, used, total=file.fsinfo()
+            conn:send("File system info:<br>")
+            conn:send("Total : "..(total / 1024).." MB<br>")
+            conn:send("Used : "..(used / 1024).." MB<br>")
+            conn:send("Remain: "..(remaining / 1024).." MB<br><br>")          
+            local l = file.list();
+            for k,v in pairs(l) do
+                conn:send("name:"..k.."  "..(v).." KB<br>\r\n")
+            end            
+        else       
+            conn:send("SD mount failed") 
+        end 
+        conn:send("</h2>\r\n") 
         collectgarbage()  
 
         file.chdir("/FLASH")
         conn:send("<h2>\r\n") 
         local remaining, used, total=file.fsinfo()
         conn:send("File system info:<br>")
-        conn:send("Total : "..(total / 1024).." kBytes<br>")
-        conn:send("Used : "..(used / 1024).." kBytes<br>")
-        conn:send("Remain: "..(remaining / 1024).." kBytes<br><br>")          
+        conn:send("Total : "..(total / 1024).." KB<br>")
+        conn:send("Used : "..(used / 1024).." KB<br>")
+        conn:send("Remain: "..(remaining / 1024).." KB<br><br>")          
         local l = file.list();
         for k,v in pairs(l) do
-            conn:send("name:"..k.."  "..(v / 1024).." kBytes<br>\r\n")
+            conn:send("name:"..k.."  "..(v / 1024).."KB<br>\r\n")
         end        
         conn:send("</h2>\r\n")    
         collectgarbage()      
         
-        conn:send("<h2>HEAP ") 
+        conn:send("<h2>HEAP FREE ") 
         conn:send(node.heap()/1024)
-        conn:send(" KBYTES</h2>\r\n") 
+        conn:send(" KB</h2>\r\n") 
         
         conn:send("<h2>")
-        conn:send(string.format("DHT Temperature:%d.%03d;Humidity:%d.%03d\r\n",
+        conn:send(string.format("DHT %d.%03d t,C  %d.%03d percent\r\n",
             math.floor(DHT_t),
             DHT_t_dec,
             math.floor(DHT_h), 

@@ -38,9 +38,6 @@ tmr.alarm(1, 1000, 1, function()
      end
 end)   
 collectgarbage()   
-
-dofile("webserver.lua") --webserver.lc       
-collectgarbage()
  
 sntp.sync(nil, 
     function(sec, usec, server, info)
@@ -56,4 +53,7 @@ collectgarbage()
 
 dofile("cron.lua") -- cron.lc
 collectgarbage()
+
+dofile("webserver.lua") --webserver.lc       
+collectgarbage() 
 
