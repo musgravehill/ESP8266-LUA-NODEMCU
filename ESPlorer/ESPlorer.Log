@@ -45491,3 +45491,59 @@
   <thread>13</thread>
   <message>RTS set to OFF</message>
 </record>
+<record>
+  <date>2017-11-03T23:37:57</date>
+  <millis>1509741477296</millis>
+  <sequence>4140</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>13</thread>
+  <message>Close port COM3 - Success.</message>
+</record>
+<record>
+  <date>2017-11-03T23:37:58</date>
+  <millis>1509741478909</millis>
+  <sequence>4141</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>13</thread>
+  <message>FileTab removed: Success.</message>
+</record>
+<record>
+  <date>2017-11-03T23:37:58</date>
+  <millis>1509741478910</millis>
+  <sequence>4142</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>13</thread>
+  <message>File close: Success.</message>
+</record>
+<record>
+  <date>2017-11-03T23:37:58</date>
+  <millis>1509741478990</millis>
+  <sequence>4143</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>13</thread>
+  <message>FileTab cleared: Success.</message>
+</record>
+<record>
+  <date>2017-11-03T23:37:58</date>
+  <millis>1509741478992</millis>
+  <sequence>4144</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>13</thread>
+  <message>File close: Success.</message>
+</record>
+</log>
