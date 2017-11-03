@@ -1,0 +1,3 @@
+adc cron dht file gpio http net node rtctime sjson sntp spi tmr uart wifi.  + SD
+
+DHT NO NEED n 1-wire OW! Cause it use own pin-up-down-read-functions.
