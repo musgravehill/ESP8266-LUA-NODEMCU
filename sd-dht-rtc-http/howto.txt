@@ -1,0 +1,35 @@
+----------------------------------------------------------------------------------------------------
+-- If you want your code to be more efficient then use "local" to declare variables when possible 
+--and call node.compile("yourfile.lua"). Compiled lua code uses less memory.
+----------------------------------------------------------------------------------------------------
+
+========ADC====
+--True if the function had to change the mode, false if the mode was already configured. 
+--On a true return the ESP needs to be restarted for the change to take effect.
+if adc.force_init_mode(adc.INIT_VDD33)then
+  node.restart()
+  return -- don't bother continuing, the restart is scheduled
+end
+
+===================== SD ============
+spi.setup(1, spi.MASTER, spi.CPOL_LOW, spi.CPHA_LOW, 8, 8)
+                    -- initialize other spi slaves
+                    -- then mount the sd
+                    -- note: the card initialization process during `file.mount()` will set spi divider temporarily to 200 (400 kHz)
+                    -- it's reverted back to the current user setting before `file.mount()` finishes
+vol = file.mount("/SD0", 8)   -- 2nd parameter is optional for non-standard SS/CS pin
+if not vol then
+    print("retry mounting")
+    vol = file.mount("/SD0", 8)
+    if not vol then
+        error("mount failed")
+    end
+end
+                    
+if file.open("/SD0/readme.txt", "r") then 
+        print("OK open readme.txt")
+        print(file.read())
+        file.close()
+else
+    print("cannot open readme.txt")
+end  
