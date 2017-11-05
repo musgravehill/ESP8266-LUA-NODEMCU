@@ -28,4 +28,5 @@ module_wifi.init(wifi_onConnectOk_callback)
 
 
 dofile('cron.lua')
+dofile('webserver.lua')
 
