@@ -1,1 +1,1 @@
-dofile('start.lua')  --start.lc
+dofile('start.lua') 
