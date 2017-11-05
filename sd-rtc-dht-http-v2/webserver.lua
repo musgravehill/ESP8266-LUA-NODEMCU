@@ -9,8 +9,7 @@ local function net_connect(current_connect, data)
         conn:send("<title>ESP8266 server</title>\r\n") 
         conn:send('<link rel="icon" href="http://www.rozek.de/Lua/Lua-Logo_128x128.png">\r\n') 
         conn:send("</head><body>\r\n")
-        conn:send("<h1>ESP8266 server</h1>\r\n")
-        collectgarbage() 
+        conn:send("<h1>ESP8266 server</h1>\r\n")     
         
         local tm = rtctime.epoch2cal(rtctime.get())
         conn:send("<h2>")
@@ -19,7 +18,7 @@ local function net_connect(current_connect, data)
         collectgarbage() 
         
         conn:send("<h2>node.bootreason ")
-        _, reset_reason = node.bootreason() --raw, extented. Use extented only, Raw deprecated
+        local _, reset_reason = node.bootreason() --raw, extented. Use extented only, Raw deprecated
         conn:send(reset_reason)  
         conn:send("</h2>\r\n") 
         collectgarbage() 
@@ -33,19 +32,19 @@ local function net_connect(current_connect, data)
         conn:send("6, external reset <br>\r\n") 
 
         conn:send("<h2>\r\n") 
-         
-            file.chdir("/SD0")
-            
+        if(file.chdir("/SD0")) then             
             local remaining, used, total=file.fsinfo()
-            conn:send("File system info:<br>")
+            conn:send("<b>SD:</b><br>")
             conn:send("Total : "..(total / 1024).." MB<br>")
             conn:send("Used : "..(used / 1024).." MB<br>")
             conn:send("Remain: "..(remaining / 1024).." MB<br><br>")          
-            local l = file.list();
+            local l = file.list()
             for k,v in pairs(l) do
                 conn:send("name:"..k.."  "..(v).." KB<br>\r\n")
-            end            
-         
+            end    
+        else
+            conn:send("<b>SD mount FAIL</b><br>")                 
+        end 
         conn:send("</h2>\r\n") 
          
         file.chdir("/FLASH")
@@ -55,7 +54,7 @@ local function net_connect(current_connect, data)
         conn:send("Total : "..(total / 1024).." KB<br>")
         conn:send("Used : "..(used / 1024).." KB<br>")
         conn:send("Remain: "..(remaining / 1024).." KB<br><br>")          
-        local l = file.list();
+        local l = file.list()
         for k,v in pairs(l) do
             conn:send("name:"..k.."  "..(v / 1024).."KB<br>\r\n")
         end        
