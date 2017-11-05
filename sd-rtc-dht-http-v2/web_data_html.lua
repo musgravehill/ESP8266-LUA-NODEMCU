@@ -1,16 +1,16 @@
 local buf = "HTTP/1.0 200 OK\r\n"  
 buf = buf.."Server: nodemcu-net\r\n"  
-buf = buf..'Content-Type: text/html\r\n'
-buf = buf..'\r\n'  --body start
+buf = buf..'Content-Type: text/html\r\n' 
+buf = buf..'\r\n'  --body start 
 
 buf = buf..'<!DOCTYPE html><html><head>\r\n' 
 buf = buf..'<title>ESP8266 server</title>\r\n' 
-buf = buf..'<link rel="icon" href="https://cdn3.iconfinder.com/data/icons/black-easy/256/538407-wifi_256x256.png">\r\n') 
+buf = buf..'<link rel="icon" href="https://cdn3.iconfinder.com/data/icons/black-easy/256/538407-wifi_256x256.png">\r\n' 
 buf = buf..'</head><body>\r\n'
 
 buf = buf..'<h1>ESP8266 server '         
 local tm = rtctime.epoch2cal(rtctime.get())         
-buf = buf..string.format('%04d-%02d-%02d %02d:%02d:%02d', tm['year'], tm['mon'], tm['day'], (tm['hour']+3), tm['min'], tm['sec']))
+buf = buf..string.format('%04d-%02d-%02d %02d:%02d:%02d', tm['year'], tm['mon'], tm['day'], (tm['hour']+3), tm['min'], tm['sec'])
 buf = buf..'</h1>\r\n'   
 
 buf = buf..'<div style="background-color: #ffd2c9; padding: 4px;">' 
@@ -33,7 +33,7 @@ buf = buf..'6, external reset <br>\r\n'
 buf = buf..'</div>'
 
 buf = buf..'<div style="background-color: #c9d0ff; padding: 4px;">'      
-if(file.chdir('/SD0') then             
+if(file.chdir('/SD0')) then             
 	local remaining, used, total=file.fsinfo()
 	buf = buf..'<h2>SD</h2>'  
 	buf = buf..'<b>Total</b> '..(total / 1024)..' MB<br>'
@@ -49,7 +49,7 @@ end
 buf = buf..'</div>'
 
 buf = buf..'<div style="background-color: #c9ffdc; padding: 4px;">'     
-if(file.chdir('/FLASH') then              
+if(file.chdir('/FLASH')) then              
 	local remaining, used, total=file.fsinfo()    
 	buf = buf..'<h2>FLASH</h2>'          
 	buf = buf..'<b>Total</b> '..(total / 1024)..' KB<br>'
@@ -62,7 +62,7 @@ if(file.chdir('/FLASH') then
 else
 	buf = buf..'<h2>FLASH mount FAIL</h2>'                 
 end         
-buf = buf..'</div>')     
+buf = buf..'</div>'
 
 buf = buf..'<div style="background-color: #fffec9; padding: 4px;">'     
 buf = buf..'<h2>HEAP FREE ' 

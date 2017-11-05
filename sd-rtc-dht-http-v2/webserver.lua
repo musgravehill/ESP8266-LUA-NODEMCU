@@ -16,17 +16,17 @@ local function net_connect(current_connect, data)
         print(path)
         print(vars)
 
+        --SD.log request and IP
+
         if(path == '/data.html') then 
            local answer = require('web_data_html')  
            conn:send(answer)
         elseif(path == '/data.json') then   
-              
+            local answer = require('web_data_json')  
+            conn:send(answer)  
         else 
-        
-        end
-        
-         
-                
+            conn:close()  
+        end               
         
         current_connect:on("sent", function(conn) 
             conn:close()             
@@ -35,7 +35,7 @@ local function net_connect(current_connect, data)
     end)   --inner      
 end --function net_connect 
 
-local my_server = net.createServer(net.TCP, 30) -- 30s timeout 
+local my_server = net.createServer(net.TCP, 10) -- 30s timeout 
 if my_server then     
     my_server:listen(80, net_connect)                  
 end    
