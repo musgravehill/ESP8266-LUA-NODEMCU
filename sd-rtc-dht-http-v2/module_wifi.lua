@@ -1,7 +1,7 @@
 local package_loaded_name = ... 
 local MODULE_wifi = {}
 
-function MODULE_wifi.init(onConnectOk_callback)       
+function MODULE_wifi.init(onConnectOk_callback)   --not local, cause use it outer    
     wifi.setmode(wifi.STATION)
     station_cfg={}
     station_cfg.ssid="error"

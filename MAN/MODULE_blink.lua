@@ -1,4 +1,4 @@
-do
+do//nado li? bez etogo rabotaet
 
 -- локальная переменная package_loaded_name таким образом ловит свое собственное название
 -- название модуля для дальнейшей выгрузки
@@ -35,4 +35,4 @@ end
 
 return MODULE_blink 
 
-end
+end//nado li? bez etogo rabotaet
