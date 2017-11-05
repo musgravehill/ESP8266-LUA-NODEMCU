@@ -27,7 +27,7 @@ local function CRON_sendToServer()
 end
 
 local function CRON_getDataDHT()
-    local DHT_pin=4 --  data pin, GPIO2 
+    local DHT_pin=4 --  data pin, GPIO2  
     local status, DHT_t, DHT_h, _, _ = dht.read(DHT_pin) 
     if status == dht.OK then     
         GDATA_DHT_t= DHT_t
@@ -43,11 +43,20 @@ local function CRON_getDataDHT()
     collectgarbage()  
 end
 
+local function CRON_checkInternet()
+    local ip = wifi.sta.getip() 
+    if not ip then
+        local module_wifi = require('module_wifi')
+        module_wifi.reconnect() 
+    end
+end
+
 cron.schedule("* * * * *", 
 function(e) -- */2 
      CRON_getDataDHT() 
      CRON_logToSD()
      CRON_sendToServer()
+     CRON_checkInternet()
      collectgarbage() 
 end
 )

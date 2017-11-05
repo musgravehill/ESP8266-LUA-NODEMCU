@@ -20,13 +20,14 @@ GDATA_DHT_h = 1
 module_wifi = require('module_wifi')
 local function wifi_onConnectOk_callback()
     print("ip now", wifi.sta.getip())
-    module_wifi= nil    
+    module_wifi= nil   
     
+    dofile('cron.lua') 
     dofile('sntp.lua') 
     dofile('webserver.lua') 
 end
 module_wifi.init(wifi_onConnectOk_callback)    
 
-dofile('cron.lua') 
+
 
 
