@@ -1,0 +1,167 @@
+html {
+    margin:0;
+    padding:0;
+    border:0;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background-color: #fff;
+    height: 80%;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 10pt; 
+}
+
+h1 { 
+    font-size: 14pt; 
+    font-weight: bold;
+    color: #732929;
+}
+
+pre {
+    margin: 0px;
+}
+
+div.vblock {
+    border: 1px solid #fff;
+    min-height: 100%;
+}
+
+ul.mline {
+    padding: 0;
+}
+
+ul.mline li {
+    display: inline-block;
+}
+
+ul.mline li a {
+    text-decoration: none;
+    font-weight: bold;
+    color: black; 
+}
+
+ul.mline li a:hover {
+    color: #02A202;
+}
+
+ul.tree {
+    list-style-type: none;
+}
+
+div.topic {
+    padding-left: 19px;
+    margin: 3px;
+    white-space: nowrap;
+}
+
+div.opened {
+    background-image: url('opened.gif');
+    background-repeat: no-repeat;
+}
+
+div.closed {
+    background-image: url('closed.gif');
+    background-repeat: no-repeat;
+}
+
+div.subject {
+    padding-left: 19px;
+    margin: 3px;
+    background-image: url('subject.gif');
+    background-repeat: no-repeat;
+}
+
+div.topic a {
+    text-decoration: none;
+    color: black;
+}
+
+div.topic a:hover {
+    color: #02A202;
+}
+
+div.idxlist a {
+    text-decoration: none;
+    color: black;
+}
+
+div.idxlist a:hover {
+    color: #02A202;
+}
+
+.copyright {
+    font-size: 8pt; 
+}
+
+.search-button {
+    cursor: pointer;
+}
+
+hr {
+    border: 0;
+    color: #888;
+    background-color: #888;
+    height: 1px;
+}
+
+table.login-form {
+    margin: 200px auto;
+    background-color: #F1F1F1;
+    padding: 5px;
+    border: 1px dotted #888888;
+}
+
+table.login-form td {
+    padding: 8px;
+    font-weight: bold;
+}
+
+table.login-form input:text {
+    width: 100%;
+}
+
+div.files table {
+    width: 80%;
+}
+
+div.files table th {
+    border-bottom: 1px dotted #d0d0d0;
+    text-align: left;
+    padding: 3px;
+}
+
+div.files table td {
+    border-bottom: 1px dotted #d0d0d0;
+    padding: 5px;
+}
+
+div.files a {
+    text-decoration: none;
+}
+
+div.files td.col1 {
+    color: green;
+    font-family: Monospace, "Courier New";
+    font-size: 11px;
+}
+
+table.list tr td {
+	border-left: 1px dashed #ccc;
+	padding: 15px;
+    vertical-align: top;
+}
+
+span.block {
+	padding: 6px;
+ 
+    display: -moz-inline-stack; /* ← Firefox 2 backwards compatibility */
+    display: inline-block;
+    vertical-align: top;
+ 
+    /* ↓ IE6 & IE7 «hasLayout» voodoo */
+    zoom: 1;
+    *display: inline;
+    /* ↑ IE6 & IE7 starhack ← http://www.ejeliot.com/blog/63 */
+}

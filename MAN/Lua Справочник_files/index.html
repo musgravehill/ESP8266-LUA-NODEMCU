@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)http://www.user.su/lua/index.php?cmd=topic -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <script type="text/javascript" src="./jquery-1.11.1.min.js.Без названия"></script>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+<body>
+    
+<script type="text/javascript">
+$(document).ready(function(){
+    var id=0;
+    if (!parent.left && id) parent.location.href='index.php?id='+id;
+    var rs=0;
+    if (rs && parent.left) parent.left.location.reload();
+    $('#cpy').click(function(){
+        window.clipboardData.setData("Text",location.href);
+        alert('This page URL now is in clipboard!');
+        return false;
+    });
+});
+</script>
+
+    <h1>Lua Справочник</h1>
+    <script type="text/javascript">
+$(document).ready(function(){
+    $('.search-button').click(function(){
+        $('.search-form').toggle();
+        return false;
+    });
+});
+</script>
+    <ul class="mline">
+        <li><a href="http://www.user.su/lua/index.php" target="_top">Home</a> | </li>
+        <li><a href="http://www.user.su/lua/index.php?cmd=topic">Topics</a> | </li>
+        <li><a href="http://www.user.su/lua/index.php?cmd=idxlist">Index</a> | </li>
+        <li><a class="search-button">Search</a> | </li>
+        <li><a href="http://www.user.su/lua/index.php?cmd=login" target="_top">Login</a></li>
+    </ul>
+    <form action="http://www.user.su/lua/index.php?cmd=search" method="post" class="search-form" style="display:none;">
+        <input type="text" name="search" size="40" maxlength="100">
+        <input type="submit" value=" Go search! ">
+    </form>
+ 
+    <hr>
+    <div class="vblock">
+    <script type="text/javascript">
+$(document).ready(function(){
+    $('.topic').click(function(){
+        $(this).toggleClass('closed opened');
+        $(this).children('.submenu').toggle();
+        $.ajax({
+            url: $(this).attr("url")
+        });
+        return false;
+    });
+    $('.submenu').click(function(){
+        return false;
+    });
+    $('a.link').click(function(event){
+        event.stopPropagation();
+        if ($(this).attr("href").indexOf("cmd=node")>=0 || 
+            $(this).attr("href").indexOf("cmd=text")>=0) {
+            parent.right.location=$(this).attr("href");
+            return true;
+        } else 
+            return false;
+    });
+});
+</script>
+<div class="topic closed" url="index.php?cmd=switch&amp;id=1"><div><a class="link" href="http://www.user.su/lua/index.php?cmd=topic" target="right">Инструменты</a></div>
+<div class="submenu" style="display:none;"><div class="subject"><div><a class="link" href="http://www.user.su/lua/index.php?cmd=text&amp;id=1" target="right">Инструменты</a></div></div>
+</div>
+</div>
+<div class="topic opened" url="index.php?cmd=switch&amp;id=2"><div><a class="link" href="http://www.user.su/lua/index.php?cmd=topic" target="right">Синтаксис</a></div>
+<div class="submenu" style=""><div class="subject"><div><a class="link" href="http://www.user.su/lua/index.php?cmd=text&amp;id=2" target="right">Ключевые слова</a></div></div>
+<div class="subject"><div><a class="link" href="http://www.user.su/lua/index.php?cmd=text&amp;id=3" target="right">Типы данных</a></div></div>
+<div class="subject"><div><a class="link" href="http://www.user.su/lua/index.php?cmd=text&amp;id=4" target="right">Математические операции</a></div></div>
+<div class="subject"><div><a class="link" href="http://www.user.su/lua/index.php?cmd=text&amp;id=5" target="right">Логические операции</a></div></div>
+<div class="subject"><div><a class="link" href="http://www.user.su/lua/index.php?cmd=text&amp;id=6" target="right">Битовые операции</a></div></div>
+<div class="subject"><div><a class="link" href="http://www.user.su/lua/index.php?cmd=text&amp;id=7" target="right">Операции сравнения</a></div></div>
+<div class="subject"><div><a class="link" href="http://www.user.su/lua/index.php?cmd=text&amp;id=9" target="right">Регулярные выражения</a></div></div>
+</div>
+</div>
+<div class="topic closed" url="index.php?cmd=switch&amp;id=3"><div><a class="link" href="http://www.user.su/lua/index.php?cmd=topic" target="right">Переменные</a></div>
+<div class="submenu" style="display:none;"><div class="subject"><div><a class="link" href="http://www.user.su/lua/index.php?cmd=text&amp;id=11" target="right">Переменные</a></div></div>
+<div class="subject"><div><a class="link" href="http://www.user.su/lua/index.php?cmd=text&amp;id=14" target="right">Массивы и хэши</a></div></div>
+<div class="subject"><div><a class="link" href="http://www.user.su/lua/index.php?cmd=text&amp;id=30" target="right">Метатаблицы</a></div></div>
+<div class="subject"><div><a class="link" href="http://www.user.su/lua/index.php?cmd=text&amp;id=41" target="right">Пример метатаблиц</a></div></div>
+</div>
+</div>
+<div class="topic closed" url="index.php?cmd=switch&amp;id=4"><div><a class="link" href="http://www.user.su/lua/index.php?cmd=topic" target="right">Операторы</a></div>
+<div class="submenu" style="display:none;"><div class="subject"><div><a class="link" href="http://www.user.su/lua/index.php?cmd=text&amp;id=17" target="right">Блоки кода</a></div></div>
+<div class="subject"><div><a class="link" href="http://www.user.su/lua/index.php?cmd=text&amp;id=19" target="right">Условия</a></div></div>
+<div class="subject"><div><a class="link" href="http://www.user.su/lua/index.php?cmd=text&amp;id=20" target="right">Циклы</a></div></div>
+<div class="subject"><div><a class="link" href="http://www.user.su/lua/index.php?cmd=text&amp;id=21" target="right">Исключения</a></div></div>
+<div class="subject"><div><a class="link" href="http://www.user.su/lua/index.php?cmd=text&amp;id=44" target="right">Операция "двоеточие"</a></div></div>
+</div>
+</div>
+<div class="topic closed" url="index.php?cmd=switch&amp;id=5"><div><a class="link" href="http://www.user.su/lua/index.php?cmd=topic" target="right">Функции</a></div>
+<div class="submenu" style="display:none;"><div class="subject"><div><a class="link" href="http://www.user.su/lua/index.php?cmd=text&amp;id=22" target="right">Функции</a></div></div>
+<div class="subject"><div><a class="link" href="http://www.user.su/lua/index.php?cmd=text&amp;id=23" target="right">Анонимные функции</a></div></div>
+<div class="subject"><div><a class="link" href="http://www.user.su/lua/index.php?cmd=text&amp;id=37" target="right">Подпрограммы</a></div></div>
+</div>
+</div>
+<div class="topic closed" url="index.php?cmd=switch&amp;id=6"><div><a class="link" href="http://www.user.su/lua/index.php?cmd=topic" target="right">Модули</a></div>
+<div class="submenu" style="display:none;"><div class="subject"><div><a class="link" href="http://www.user.su/lua/index.php?cmd=text&amp;id=26" target="right">Модули на Lua</a></div></div>
+</div>
+</div>
+<div class="topic closed" url="index.php?cmd=switch&amp;id=8"><div><a class="link" href="http://www.user.su/lua/index.php?cmd=topic" target="right">Классы</a></div>
+<div class="submenu" style="display:none;"><div class="subject"><div><a class="link" href="http://www.user.su/lua/index.php?cmd=text&amp;id=42" target="right">Простой класс</a></div></div>
+<div class="subject"><div><a class="link" href="http://www.user.su/lua/index.php?cmd=text&amp;id=43" target="right">Наследование классов</a></div></div>
+</div>
+</div>
+<div class="topic closed" url="index.php?cmd=switch&amp;id=9"><div><a class="link" href="http://www.user.su/lua/index.php?cmd=topic" target="right">Паттерны</a></div>
+</div>
+<div class="topic opened" url="index.php?cmd=switch&amp;id=13"><div><a class="link" href="http://www.user.su/lua/index.php?cmd=topic" target="right">Стандартная библиотека</a></div>
+<div class="submenu" style=""><div class="subject"><div><a class="link" href="http://www.user.su/lua/index.php?cmd=text&amp;id=39" target="right">Базовые фукции</a></div></div>
+<div class="subject"><div><a class="link" href="http://www.user.su/lua/index.php?cmd=text&amp;id=33" target="right">Математические функции</a></div></div>
+<div class="subject"><div><a class="link" href="http://www.user.su/lua/index.php?cmd=text&amp;id=34" target="right">Строковые функции</a></div></div>
+<div class="subject"><div><a class="link" href="http://www.user.su/lua/index.php?cmd=text&amp;id=38" target="right">Табличные функции</a></div></div>
+<div class="subject"><div><a class="link" href="http://www.user.su/lua/index.php?cmd=text&amp;id=35" target="right">Системные функции</a></div></div>
+<div class="subject"><div><a class="link" href="http://www.user.su/lua/index.php?cmd=text&amp;id=36" target="right">Файловые функции</a></div></div>
+<div class="subject"><div><a class="link" href="http://www.user.su/lua/index.php?cmd=text&amp;id=31" target="right">Состав стандартной библиотеки</a></div></div>
+<div class="subject"><div><a class="link" href="http://www.user.su/lua/index.php?cmd=text&amp;id=46" target="right">Отладка lua-скриптов</a></div></div>
+</div>
+</div>
+<div class="topic closed" url="index.php?cmd=switch&amp;id=12"><div><a class="link" href="http://www.user.su/lua/index.php?cmd=topic" target="right">Прикладные средства</a></div>
+<div class="submenu" style="display:none;"><div class="subject"><div><a class="link" href="http://www.user.su/lua/index.php?cmd=text&amp;id=45" target="right">API: Доступ к парам ключ-значение</a></div></div>
+</div>
+</div>
+<div class="topic closed" url="index.php?cmd=switch&amp;id=10"><div><a class="link" href="http://www.user.su/lua/index.php?cmd=topic" target="right">Рецепты Lua</a></div>
+<div class="submenu" style="display:none;"><div class="subject"><div><a class="link" href="http://www.user.su/lua/index.php?cmd=text&amp;id=32" target="right">Графические диалоги на Lua</a></div></div>
+<div class="subject"><div><a class="link" href="http://www.user.su/lua/index.php?cmd=text&amp;id=40" target="right">Числа Фибоначчи</a></div></div>
+</div>
+</div>
+    </div>
+    <hr>
+    <p class="copyright">Lua Справочник v0.05 © 2007-2017 Igor Salnikov aka SunDoctor</p>
+    
+
+
+</body></html>

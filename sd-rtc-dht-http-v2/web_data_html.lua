@@ -41,7 +41,7 @@ if(file.chdir('/SD0')) then
 	buf = buf..'<b>Remain</b> '..(remaining / 1024)..' MB<br><br>'          
 	local l = file.list()
 	for k,v in pairs(l) do
-		buf = buf..'name:'..k..'  '..(v)..' KB<br>\r\n' 
+		buf = buf..'name:'..k..'  '..(v/ 1024)..' KB<br>\r\n' 
 	end    
 else
 	buf = buf..'<h2>SD mount FAIL</h2>'                 

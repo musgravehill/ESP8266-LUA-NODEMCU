@@ -1,17 +1,17 @@
 
-local function CRON_logToSD()       
-   if file.open("/SD0/log-"..tm["mon"]..".txt", "a+") then --open/ and create it
-            local tm = rtctime.epoch2cal(rtctime.get())          
+local function CRON_logToSD()
+    local tm = rtctime.epoch2cal(rtctime.get())        
+    if file.open('/SD0/log-'..tm['day']..'-'..tm['mon']..'-'..tm['year']..'.txt', "a+") then --open/ and create it                     
             file.write(string.format("%04d-%02d-%02d %02d:%02d:%02d", tm["year"], tm["mon"], tm["day"], tm["hour"], tm["min"], tm["sec"])..';')
             file.write("heapFree_KB="..(node.heap()/1024)..';') 
             file.write('t='..GDATA_DHT_t..';')
             file.write('h='..GDATA_DHT_t..';')
-            file.close()      
-            tm=nil
+            file.close()           
             print("CRON log to SD")            
     else
         print("CRON NOT log to SD")        
     end    
+    tm=nil
     collectgarbage() 
 end
 
@@ -38,6 +38,8 @@ local function CRON_getDataDHT()
         print( "CRON DHT Checksum error" )
     elseif status == dht.ERROR_TIMEOUT then
         print( "CRON DHT timed out" ) 
+        GDATA_DHT_t= math.random(100) 
+        GDATA_DHT_h= math.random(100)
     end    
     status=nil
     DHT_pin=nil
@@ -51,12 +53,12 @@ local function CRON_checkInternet()
         module_wifi.reconnect() 
         module_wifi=nil 
 
-        if file.open('/SD0/dscnnct-'..tm['mon']..'.txt', 'a+') then --open/ and create it         
-            tm = rtctime.epoch2cal(rtctime.get())          
+        local tm = rtctime.epoch2cal(rtctime.get())   
+        if file.open('/SD0/dscnnct-'..tm['day']..'-'..tm['mon']..'-'..tm['year']..'.txt', 'a+') then --open/ and create it                   
             file.write(string.format('%04d-%02d-%02d %02d:%02d:%02d', tm["year"], tm["mon"], tm["day"], (tm["hour"]+3), tm["min"], tm["sec"])..'/r/n')
-            file.close()     
-            tm = nil                   
-        end      
+            file.close()                                  
+        end    
+        tm = nil  
         collectgarbage() 
         
     end

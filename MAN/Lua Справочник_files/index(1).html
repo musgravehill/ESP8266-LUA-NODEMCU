@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)http://www.user.su/lua/index.php?cmd=text&id=9 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Регулярные выражения</title>
+    
+    <script type="text/javascript" src="./jquery-1.11.1.min.js.Без названия"></script>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+<body>
+    
+<script type="text/javascript">
+$(document).ready(function(){
+    var id=9;
+    if (!parent.left && id) parent.location.href='index.php?id='+id;
+    var rs=0;
+    if (rs && parent.left) parent.left.location.reload();
+    $('#cpy').click(function(){
+        window.clipboardData.setData("Text",location.href);
+        alert('This page URL now is in clipboard!');
+        return false;
+    });
+});
+</script>
+
+    <h1>Регулярные выражения</h1>
+    <script type="text/javascript">
+$(document).ready(function(){
+    $('.delobj').click(function(){
+        return confirm("Are you sure you want to delete?");
+    })
+});
+</script>
+    <ul class="mline">
+        <li><a href="http://www.user.su/lua/index.php?cmd=welcome">Home</a></li>
+    </ul>
+ 
+    <hr>
+    <div class="vblock">
+    <pre><span style="color:#00AA00;">-- Работа с регулярными выражениями осуществляется модулем string</span>
+
+date = "04/19/64"
+m, d, y = string.match(date, "(%d+)/(%d+)/(%d+)")
+
+
+<span style="color:#00AA00;">-- %d matches a digit (123)</span>
+string.match("foo 123 bar", '%d%d%d')
+
+<span style="color:#00AA00;">-- %u matches an uppercase letter (U)</span>
+string.match("text with an Uppercase letter", '%u')
+
+
+<span style="color:#00AA00;">-- Глобальный поиск по шаблону</span>
+string.gmatch(s, pattern)
+
+
+Пример 1
+
+<span class="block" style="background-color:#e0e0e0;"><span style="color:#00AA00;">-- Проход по всем словам</span>
+s = "hello world from Lua"
+
+for w in string.gmatch(s, "%a+") do
+    print(w)
+end</span>
+
+Пример 2
+
+<span class="block" style="background-color:#e0e0e0;"><span style="color:#00AA00;">-- Сбор пар "ключ-значение"</span>
+t = {}
+s = "from=world, to=Lua"
+
+for k, v in string.gmatch(s, "(%w+)=(%w+)") do
+    t[k] = v
+end</span>
+
+Замены на основе регулярных выражений
+
+<span class="block" style="background-color:#e0e0e0;"><span style="color:#00AA00;">-- Возвращает копию s в которой все вхождения pattern заменяются на replace</span>
+<span style="color:#00AA00;">-- где replace - строка, таблица или функция</span>
+<span style="color:#00AA00;">-- возвращает как второе значение - общеее количество проведенных подстановок</span>
+string.gsub (s, pattern, replace [, n])</span>
+
+
+Примеры:
+
+<span class="block" style="background-color:#e0e0e0;">x = string.gsub("hello world", "(%w+)", "%1 %1")
+<span style="color:#00AA00;">--&gt; x="hello hello world world"</span>
+
+x = string.gsub("hello world", "%w+", "%0 %0", 1)
+<span style="color:#00AA00;">--&gt; x="hello hello world"</span>
+
+x = string.gsub("hello world from Lua", "(%w+)%s*(%w+)", "%2 %1")
+<span style="color:#00AA00;">--&gt; x="world hello Lua from"</span>
+
+x = string.gsub("home = $HOME, user = $USER", "%$(%w+)", os.getenv)
+<span style="color:#00AA00;">--&gt; x="home = /home/roberto, user = roberto"</span>
+
+x = string.gsub("4+5 = $return 4+5$", "%$(.-)%$", function (s)
+   return loadstring(s)()
+ end)
+<span style="color:#00AA00;">--&gt; x="4+5 = 9"</span>
+
+local t = {name="lua", version="5.1"}
+x = string.gsub("$name-$version.tar.gz", "%$(%w+)", t)
+<span style="color:#00AA00;">--&gt; x="lua-5.1.tar.gz"</span></span>
+</pre>    </div>
+    <hr>
+    <p class="copyright">Lua Справочник v0.05 © 2007-2017 Igor Salnikov aka SunDoctor</p>
+    
+
+
+</body></html>
