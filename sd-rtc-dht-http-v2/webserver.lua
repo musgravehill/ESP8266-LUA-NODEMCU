@@ -21,9 +21,13 @@ local function net_connect(current_connect, data)
         if(path == '/data.html') then 
            local answer = require('web_data_html')  
            conn:send(answer)
+           package.loaded['web_data_html'] = nil  
+           answer=nil
         elseif(path == '/data.json') then   
             local answer = require('web_data_json')  
             conn:send(answer)  
+            package.loaded['web_data_json'] = nil  
+            answer=nil
         else 
             conn:close()  
         end               
