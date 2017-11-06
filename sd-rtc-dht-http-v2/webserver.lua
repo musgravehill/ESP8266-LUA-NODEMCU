@@ -1,6 +1,6 @@
 local function net_connect(current_connect, data)   
     current_connect:on ("receive", function (conn, req_data)  
-        print(req_data) 
+        --print(req_data) 
         local _, _, method, path, vars = string.find(req_data, "([A-Z]+) (.+)?(.+) HTTP");
         if(method == nil)then
             _, _, method, path = string.find(req_data, "([A-Z]+) (.+) HTTP");
@@ -11,12 +11,21 @@ local function net_connect(current_connect, data)
                 _GET[k] = v
             end
         end
-        print('method, path, params =\r\n')
-        print(method)
-        print(path)
-        print(vars)
+        --print('method, path, params =\r\n')
+        --print(method)
+        --print(path)
+        --print(vars)
+  
+        if file.open('/SD0/web-'..tm['mon']..'.txt', 'a+') then --open/ and create it         
+            tm = rtctime.epoch2cal(rtctime.get())          
+            file.write(string.format('%04d-%02d-%02d %02d:%02d:%02d', tm["year"], tm["mon"], tm["day"], (tm["hour"]+3), tm["min"], tm["sec"]))
+            file.write(req_data..'/r/n'..'/r/n') 
+            file.close()     
+            tm = nil                   
+        end      
+        collectgarbage() 
 
-        --SD.log request and IP
+         
 
         if(path == '/data.html') then 
            local answer = require('web_data_html')  
@@ -33,13 +42,16 @@ local function net_connect(current_connect, data)
         end               
         
         current_connect:on("sent", function(conn) 
-            conn:close()             
-        end)         
+            conn:close()        
+            collectgarbage()      
+        end)        
+        collectgarbage()  
               
     end)   --inner      
 end --function net_connect 
 
 local my_server = net.createServer(net.TCP, 10) -- 30s timeout 
 if my_server then     
-    my_server:listen(80, net_connect)                  
+    my_server:listen(80, net_connect)    
+    collectgarbage()               
 end    

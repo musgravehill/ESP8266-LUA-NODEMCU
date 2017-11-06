@@ -1,16 +1,17 @@
 
-local function CRON_logToSD()
-   tm = rtctime.epoch2cal(rtctime.get())   
+local function CRON_logToSD()       
    if file.open("/SD0/log-"..tm["mon"]..".txt", "a+") then --open/ and create it
-            tm = rtctime.epoch2cal(rtctime.get())          
-            file.write(string.format("%04d-%02d-%02d %02d:%02d:%02d", tm["year"], tm["mon"], tm["day"], (tm["hour"]+3), tm["min"], tm["sec"]))
-            file.write("HEAP FREE "..(node.heap()/1024).." KB\r\n") 
-            file.close()     
+            local tm = rtctime.epoch2cal(rtctime.get())          
+            file.write(string.format("%04d-%02d-%02d %02d:%02d:%02d", tm["year"], tm["mon"], tm["day"], tm["hour"], tm["min"], tm["sec"])..';')
+            file.write("heapFree_KB="..(node.heap()/1024)..';') 
+            file.write('t='..GDATA_DHT_t..';')
+            file.write('h='..GDATA_DHT_t..';')
+            file.close()      
+            tm=nil
             print("CRON log to SD")            
     else
         print("CRON NOT log to SD")        
-    end
-    tm=nil
+    end    
     collectgarbage() 
 end
 
@@ -48,6 +49,16 @@ local function CRON_checkInternet()
     if not ip then
         local module_wifi = require('module_wifi')
         module_wifi.reconnect() 
+        module_wifi=nil 
+
+        if file.open('/SD0/dscnnct-'..tm['mon']..'.txt', 'a+') then --open/ and create it         
+            tm = rtctime.epoch2cal(rtctime.get())          
+            file.write(string.format('%04d-%02d-%02d %02d:%02d:%02d', tm["year"], tm["mon"], tm["day"], (tm["hour"]+3), tm["min"], tm["sec"])..'/r/n')
+            file.close()     
+            tm = nil                   
+        end      
+        collectgarbage() 
+        
     end
 end
 
