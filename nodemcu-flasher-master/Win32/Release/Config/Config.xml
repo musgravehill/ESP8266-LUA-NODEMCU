@@ -2,7 +2,7 @@
 <DataChest>
   <Data name="ComboBoxFlashBaudrate.Text">
     <Type>String</Type>
-    <Value>115200</Value>
+    <Value>230400</Value>
   </Data>
   <Data name="ComboBoxFlashSize.ItemIndex">
     <Type>Integer</Type>
@@ -34,11 +34,11 @@
   </Data>
   <Data name="FrameConfigLine2.FilePath">
     <Type>String</Type>
-    <Value>C:\usr\seo-soft\!!ESP8266\nodemcu-flasher-master\Resources\Binaries\new-bob\sd-rtc-dht.bin</Value>
+    <Value>C:\usr\seo-soft\ESP8266-LUA-NODEMCU\nodemcu-flasher-master\Resources\Binaries\new-bob\ESP8266_NONOS_SDK-2.1.0\bin\esp_init_data_default.bin</Value>
   </Data>
   <Data name="FrameConfigLine2.Offset">
     <Type>String</Type>
-    <Value>0x00000</Value>
+    <Value>0x3FC000</Value>
   </Data>
   <Data name="FrameConfigLine3.Checked">
     <Type>Boolean</Type>
@@ -72,46 +72,6 @@
     <Type>String</Type>
     <Value/>
   </Data>
-  <Data name="FrameConfigLine5.FilePath">
-    <Type>String</Type>
-    <Value/>
-  </Data>
-  <Data name="FrameConfigLine5.FilePath">
-    <Type>String</Type>
-    <Value/>
-  </Data>
-  <Data name="FrameConfigLine5.FilePath">
-    <Type>String</Type>
-    <Value/>
-  </Data>
-  <Data name="FrameConfigLine5.FilePath">
-    <Type>String</Type>
-    <Value/>
-  </Data>
-  <Data name="FrameConfigLine5.FilePath">
-    <Type>String</Type>
-    <Value/>
-  </Data>
-  <Data name="FrameConfigLine5.Offset">
-    <Type>String</Type>
-    <Value/>
-  </Data>
-  <Data name="FrameConfigLine5.Offset">
-    <Type>String</Type>
-    <Value/>
-  </Data>
-  <Data name="FrameConfigLine5.Offset">
-    <Type>String</Type>
-    <Value/>
-  </Data>
-  <Data name="FrameConfigLine5.Offset">
-    <Type>String</Type>
-    <Value/>
-  </Data>
-  <Data name="FrameConfigLine5.Offset">
-    <Type>String</Type>
-    <Value/>
-  </Data>
   <Data name="FrameConfigLine5.Offset">
     <Type>String</Type>
     <Value/>
@@ -120,43 +80,7 @@
     <Type>Boolean</Type>
     <Value>False</Value>
   </Data>
-  <Data name="FrameConfigLine6.Checked">
-    <Type>Boolean</Type>
-    <Value>False</Value>
-  </Data>
-  <Data name="FrameConfigLine6.Checked">
-    <Type>Boolean</Type>
-    <Value>False</Value>
-  </Data>
-  <Data name="FrameConfigLine6.Checked">
-    <Type>Boolean</Type>
-    <Value>False</Value>
-  </Data>
   <Data name="FrameConfigLine6.FilePath">
-    <Type>String</Type>
-    <Value/>
-  </Data>
-  <Data name="FrameConfigLine6.FilePath">
-    <Type>String</Type>
-    <Value/>
-  </Data>
-  <Data name="FrameConfigLine6.FilePath">
-    <Type>String</Type>
-    <Value/>
-  </Data>
-  <Data name="FrameConfigLine6.FilePath">
-    <Type>String</Type>
-    <Value/>
-  </Data>
-  <Data name="FrameConfigLine6.Offset">
-    <Type>String</Type>
-    <Value/>
-  </Data>
-  <Data name="FrameConfigLine6.Offset">
-    <Type>String</Type>
-    <Value/>
-  </Data>
-  <Data name="FrameConfigLine6.Offset">
     <Type>String</Type>
     <Value/>
   </Data>
@@ -168,47 +92,7 @@
     <Type>Boolean</Type>
     <Value>False</Value>
   </Data>
-  <Data name="FrameConfigLine7.Checked">
-    <Type>Boolean</Type>
-    <Value>False</Value>
-  </Data>
-  <Data name="FrameConfigLine7.Checked">
-    <Type>Boolean</Type>
-    <Value>False</Value>
-  </Data>
-  <Data name="FrameConfigLine7.Checked">
-    <Type>Boolean</Type>
-    <Value>False</Value>
-  </Data>
   <Data name="FrameConfigLine7.FilePath">
-    <Type>String</Type>
-    <Value/>
-  </Data>
-  <Data name="FrameConfigLine7.FilePath">
-    <Type>String</Type>
-    <Value/>
-  </Data>
-  <Data name="FrameConfigLine7.FilePath">
-    <Type>String</Type>
-    <Value/>
-  </Data>
-  <Data name="FrameConfigLine7.FilePath">
-    <Type>String</Type>
-    <Value/>
-  </Data>
-  <Data name="FrameConfigLine7.Offset">
-    <Type>String</Type>
-    <Value/>
-  </Data>
-  <Data name="FrameConfigLine7.Offset">
-    <Type>String</Type>
-    <Value/>
-  </Data>
-  <Data name="FrameConfigLine7.Offset">
-    <Type>String</Type>
-    <Value/>
-  </Data>
-  <Data name="FrameConfigLine7.Offset">
     <Type>String</Type>
     <Value/>
   </Data>
