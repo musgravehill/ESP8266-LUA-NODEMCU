@@ -2,7 +2,7 @@
 <DataChest>
   <Data name="ComboBoxFlashBaudrate.Text">
     <Type>String</Type>
-    <Value>230400</Value>
+    <Value>115200</Value>
   </Data>
   <Data name="ComboBoxFlashSize.ItemIndex">
     <Type>Integer</Type>
@@ -14,7 +14,7 @@
   </Data>
   <Data name="ComboBoxSPIMode.ItemIndex">
     <Type>Integer</Type>
-    <Value>1</Value>
+    <Value>0</Value>
   </Data>
   <Data name="FrameConfigLine1.Checked">
     <Type>Boolean</Type>
@@ -30,7 +30,7 @@
   </Data>
   <Data name="FrameConfigLine2.Checked">
     <Type>Boolean</Type>
-    <Value>True</Value>
+    <Value>False</Value>
   </Data>
   <Data name="FrameConfigLine2.FilePath">
     <Type>String</Type>
@@ -46,11 +46,11 @@
   </Data>
   <Data name="FrameConfigLine3.FilePath">
     <Type>String</Type>
-    <Value/>
+    <Value>C:\usr\seo-soft\ESP8266-LUA-NODEMCU\nodemcu-flasher-master\Resources\Binaries\new-bob\sd-rtc-dht.bin</Value>
   </Data>
   <Data name="FrameConfigLine3.Offset">
     <Type>String</Type>
-    <Value/>
+    <Value>0x00000</Value>
   </Data>
   <Data name="FrameConfigLine4.Checked">
     <Type>Boolean</Type>
@@ -58,11 +58,11 @@
   </Data>
   <Data name="FrameConfigLine4.FilePath">
     <Type>String</Type>
-    <Value/>
+    <Value>C:\usr\seo-soft\ESP8266-LUA-NODEMCU\nodemcu-flasher-master\Resources\Binaries\new-bob\ESP8266_NONOS_SDK-2.1.0\bin\esp_init_data_default.bin</Value>
   </Data>
   <Data name="FrameConfigLine4.Offset">
     <Type>String</Type>
-    <Value/>
+    <Value>0x3FC000</Value>
   </Data>
   <Data name="FrameConfigLine5.Checked">
     <Type>Boolean</Type>
@@ -70,23 +70,23 @@
   </Data>
   <Data name="FrameConfigLine5.FilePath">
     <Type>String</Type>
-    <Value/>
+    <Value>C:\Users\Ikinet-M\Downloads\esp8266_deauther_1mb.bin</Value>
   </Data>
   <Data name="FrameConfigLine5.Offset">
     <Type>String</Type>
-    <Value/>
+    <Value>0x00000</Value>
   </Data>
   <Data name="FrameConfigLine6.Checked">
     <Type>Boolean</Type>
-    <Value>False</Value>
+    <Value>True</Value>
   </Data>
   <Data name="FrameConfigLine6.FilePath">
     <Type>String</Type>
-    <Value/>
+    <Value>C:\usr\seo-soft\ESP8266-LUA-NODEMCU\FWs\2\nodemcu.bin</Value>
   </Data>
   <Data name="FrameConfigLine6.Offset">
     <Type>String</Type>
-    <Value/>
+    <Value>0x00000</Value>
   </Data>
   <Data name="FrameConfigLine7.Checked">
     <Type>Boolean</Type>

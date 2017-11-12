@@ -14,22 +14,20 @@ function MODULE_wifi.init(onConnectOk_callback)   --not local, cause use it oute
         package.loaded[package_loaded_name] = nil           
     end
 
-    local ip = wifi.sta.getip()
-
-    if not ip then
+    wifi.sta.connect()
+               
         tmr.create():alarm(5000, 1, function(t)            
-            ip = wifi.sta.getip()                     
+            local ip = wifi.sta.getip()                  
             if ip then                
                 tmr.stop(t)                
                 tmr.unregister(t)                
                 t = nil
                 localFunc_onConnect() 
+            else
+                print('no IP..')    
             end
-        end)        
-        wifi.sta.connect()
-    else
-        localFunc_onConnect()
-    end    
+        end)         
+      
 end
 
 function MODULE_wifi.reconnect(onReConnectOk_callback)   --not local, cause use it outer  
